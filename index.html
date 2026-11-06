@@ -1,0 +1,8 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Messenger</title><style>body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0d14;color:#e8eaf2;font:18px system-ui,sans-serif;text-align:center}
+.d{font-size:56px;animation:f 2s ease-in-out infinite}@keyframes f{50%{transform:translateY(-10px)}}p{opacity:.8;padding:0 20px}</style></head>
+<body><div><div class="d">💬</div><p id="t">Ищу сервер…</p></div><script>
+async function go(){const t=document.getElementById('t');try{const r=await fetch('https://raw.githubusercontent.com/makar23232-eng/messenger-link/main/current.json?t='+Date.now(),{cache:'no-store'});const j=await r.json();
+if(j.link&&Date.now()/1000-j.ts<1500){t.textContent='Подключаюсь…';location.replace(j.link);return}
+t.textContent='Сервер сейчас выключен. Эта страница сама подключится, как только он включится.'}catch(e){t.textContent='Не удаётся связаться. Пробую снова…'}
+setTimeout(go,8000)}go()</script></body></html>
